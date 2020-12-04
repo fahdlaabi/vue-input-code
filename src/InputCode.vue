@@ -120,8 +120,8 @@ export default {
       inputCode: "", //单次输入的值
       codeArray: [], //输入的值数组
 
-      blockWidth: (100 / this.number).toFixed(4) + '%', //每个格子的宽度
-      blockSize: (100 / this.number).toFixed(4), //计算用宽度
+      blockWidth: '42px', //每个格子的宽度
+      blockSize: 42, //计算用宽度
       block: [], //存放格子
 
       zIndex: 10 //输入框层级(开始默认最高)
@@ -146,7 +146,7 @@ export default {
     deleteInput() {
       if (this.inputCodeNum === this.number - 1) {
         this.inputCodeNum--;
-        this.left = (this.blockSize * this.inputCodeNum) + "%";
+        this.left = ((this.blockSize + 10) * this.inputCodeNum ) + 'px';
         this.codeArray.pop();
         this.code.pop();
         this.getInput(this.codeString);//回调
@@ -156,7 +156,8 @@ export default {
         this.inputCodeNum--;
         this.codeArray.pop();
         this.code.pop();
-        this.left = (this.blockSize * this.inputCodeNum) + '%'
+        this.left = ((this.blockSize + 10) * this.inputCodeNum ) + 'px';
+
         this.getInput(this.codeString);//回调
       }
     },
@@ -180,7 +181,7 @@ export default {
         this.code.push(this.inputCode);
         this.inputCode = '';
         this.inputCodeNum++;
-        this.left = (this.blockSize * this.inputCodeNum) + '%';
+        this.left = ((this.blockSize + 10) * this.inputCodeNum ) + 'px';
 
         this.getInput(this.codeString);//回调
       } else {
